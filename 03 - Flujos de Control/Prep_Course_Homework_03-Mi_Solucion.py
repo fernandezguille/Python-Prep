@@ -2,19 +2,20 @@
 
 # 1) Crear una variable que contenga un elemento del conjunto de números enteros y luego imprimir por pantalla si es mayor o menor a cero
 from ast import Continue
+from operator import truediv
 
 
 entero = int(0)
-if entero > 0:
+if (entero > 0):
     print(entero, "es mayor a cero")
-elif entero < 0:
+elif (entero < 0):
     print(entero, "es menor a cero")
 else:
     print(entero, "es igual a cero")
 
 # 2) Crear dos variables y un condicional que informe si son del mismo tipo de dato
 decimal = 3.5
-if type(entero) == type(decimal):
+if (type(entero) == type(decimal)):
     print("Ambas variables son del tipo ",type(entero))
 else:
     print("Las variables son diferentes tipos de datos")
@@ -36,12 +37,19 @@ for n in range(entero):
     print(n)
 
 # 6) Utilizar un ciclo while para realizar el factorial de un número guardado en una variable, sólo si la variable contiene un número entero mayor a 0
-entero = 7
+entero = 6
 n = 1
-while entero > 0:
-    n *= entero
-    entero -= 1
-print(n)
+if type(entero) == int:
+    if entero > 0:
+        m = entero
+        while entero > 1:
+            n *= entero
+            entero -= 1
+        print("El factorial de", m, "es", n)
+    else:
+        print("El numero debe ser mayor a cero")
+else:
+    print("La variable de ser un entero")
 
 # 7) Crear un ciclo for dentro de un ciclo while
 print("******  Ejercicio 7 ******")
@@ -76,8 +84,8 @@ print("Cantidad de ciclos:" ,Ciclos)
 # 10) ¿Se puede mejorar el proceso del punto 9? Utilizar las sentencias break y/ó continue para tal fin
 print("******  Ejercicio 10: Uso del break ******")
 Ciclos = 0
-primo = True
 for m in range(2,31):
+    primo = True
     for n in range(2,m):
         Ciclos += 1
         if m%n == 0:
@@ -85,67 +93,53 @@ for m in range(2,31):
             break    
     if (primo):
         print(m)
-    else:
-        primo = True
 print("Cantidad de ciclos:" ,Ciclos)
 
 # 11) En los puntos 9 y 10, se diseño un código que encuentra números primos y además se lo optimizó. ¿Es posible saber en qué medida se optimizó?
 print("******  Ejercicio 11: Optimizacion del break ******")
 Ciclossb = 0
-primo = True
 for m in range(2,31):
+    primo = True
     for n in range(2,m):
         Ciclossb += 1
         if m%n == 0:
             primo = False        
     if (primo):
         print(m)
-    else:
-        primo = True
 print("Cantidad de ciclos sin break:" ,Ciclossb)
 
 Ciclos = 0
-primo = True
 for m in range(2,31):
-    for n in range(2,m):
+    primo = True
+    for n in range(2,int(m/2)):
         Ciclos += 1
         if m%n == 0:
             primo = False
             break   
     if (primo):
         print(m)
-    else:
-        primo = True
 print("Cantidad de ciclos con break:" ,Ciclos)
 print("Se optimizo a un",int(Ciclos*100/Ciclossb),"% de los ciclos aplicando break")
 
 # 12) Si la cantidad de números que se evalúa es mayor a treinta, esa optimización crece?
 print("******  Ejercicio 12: Optimizacion en grandes cantidades ******")
 Ciclossb = 0
-primo = True
 for m in range(2,101):
+    primo = True
     for n in range(2,m):
         Ciclossb += 1
-        if m == n:
-            primo = True
-            
-        elif m%n == 0:
+        if m%n == 0:
             primo = False      
-        primo = True
 print("Cantidad de ciclos sin break:" ,Ciclossb)
 
 Ciclos = 0
-primo = True
 for m in range(2,101):
-    for n in range(2,m):
+    primo = True
+    for n in range(2,int(m/2)):
         Ciclos += 1
-        if m == n:
-            primo = True
-            break            
-        elif m%n == 0:
+        if m%n == 0:
             primo = False
             break   
-        primo = True
 print("Cantidad de ciclos con break:" ,Ciclos)
 print("Se optimizo a un",int(Ciclos*100/Ciclossb),"% de los ciclos aplicando break")
 
