@@ -202,3 +202,4 @@ while n <= 300:
         print(n)
         break
     n +=1
+#Los bucles de primos tienen menos iteraciones
