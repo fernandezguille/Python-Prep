@@ -82,7 +82,7 @@ class Utilidades:
     def conversor(self, origen, destino):
         for elemento in self.lista_sin_duplicados:
             print(f"{elemento} grados {origen} son equivalentes a {self.__conversor(elemento, origen, destino)} grados {destino}")
-    
+                
     def __factorial(self, numero):
         if (type(numero) != int):
             return ("Se debe ingresar un numero entero positivo")
