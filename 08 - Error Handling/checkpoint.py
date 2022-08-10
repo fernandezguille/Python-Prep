@@ -1,6 +1,11 @@
 # Importante: No modificar ni el nombre ni los argumetos que reciben las funciones, sólo deben escribir
 # código dentro de las funciones ya definidas.
 
+from contextlib import nullcontext
+from math import factorial
+from tkinter import Variable
+
+
 def Factorial(numero):
     '''
     Esta función devuelve el factorial del número pasado como parámetro.
@@ -12,11 +17,16 @@ def Factorial(numero):
         Factorial(-2) debe retornar nulo
     '''
     #Tu código aca:
-    return 'Funcion incompleta'
+    if not((type(numero) == int) and (numero >= 1)):
+        return (None)
+    factorial = 1
+    for elemento in range(1,numero+1):
+        factorial *= elemento
+    return (factorial)
 
 def EsPrimo(valor):
     '''
-    Esta función devuelve el valor booleano True si el número reibido como parámetro es primo, de lo 
+    Esta función devuelve el valor booleano True si el número recibido como parámetro es primo, de lo 
     contrario devuelve False..
     En caso de que el parámetro no sea de tipo entero debe retornar nulo.
     Recibe un argumento:
@@ -26,7 +36,12 @@ def EsPrimo(valor):
         EsPrimo(8) debe retornar False
     '''
     #Tu código aca:
-    return 'Funcion incompleta'
+    if not((type(valor) == int) and (valor > 1)):
+        return (None)
+    for n in range(2,(valor//2+1)):
+        if valor % n == 0:
+            return False
+    return True
     
 def ClaseAnimal(especie, color):
     '''
@@ -47,4 +62,19 @@ def ClaseAnimal(especie, color):
         a.CumpliAnios() -> debe devolver 3
     '''
     #Tu código aca:
-    return 'Funcion incompleta'
+    class Animal:
+        def __init__(self, especie, color):
+            self.edad = 0
+            self.especie = especie
+            self.color = color
+
+        def CumplirAnios(self):
+            self.edad += 1
+            return (self.edad)
+    
+    Parametro = Animal(especie, color)
+
+    return Parametro
+
+Valor = factorial(1)
+print(Valor)
