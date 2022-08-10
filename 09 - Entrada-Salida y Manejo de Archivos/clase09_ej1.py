@@ -1,9 +1,8 @@
+# 1) Crear un script con el nombre "clase09_ej1.py" que reciba 3 parametros a elección, verificando que sean exactamente esa cantidad, y muestre como salida los parámetros recibidos
 import sys
-# Comprobación de seguridad, ejecutar sólo si se recibe 3 argumentos
 if len(sys.argv) == 4:
-    print("El primer parámetro es:",sys.argv[1])
-    print("El segundo parámetro es:",sys.argv[2])
-    print("El tercer parámetro es:",sys.argv[3])
+    print(f"El script {sys.argv[0]} tiene los siguientes parametros:")
+    for i in range(1,4):
+        print(sys.argv[i])
 else:
-    print("ERROR: Introdujo una cantidad de argumentos distinta de tres (3)")
-    print('Ejemplo: clase09_ej1.py 1 2 3')
+    print("Se recibio una cantidad de parametros diferente a 3")
